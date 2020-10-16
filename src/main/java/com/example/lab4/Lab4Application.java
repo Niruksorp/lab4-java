@@ -1,5 +1,6 @@
 package com.example.lab4;
 
+import com.example.lab4.MenuView.Menu;
 import com.example.lab4.UserInput.UserInput;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,11 +17,12 @@ public class Lab4Application {
         ApplicationContext ctx = SpringApplication.run(Lab4Application.class, args);
         programLogic = ctx.getBean(ProgramLogic.class);
         UserInput userInput = new UserInput();
+        Menu menuView = new Menu();
         Scanner input = new Scanner(System.in);
         boolean loop = true;
 
         while (loop){
-            printMenu();
+            menuView.printMenu();
             System.out.println("Введите команду! \n");
             switch (userInput.getInt(input)){
                 case 1: {
@@ -52,15 +54,5 @@ public class Lab4Application {
         }
     }
 
-    public static void printMenu () {
-        String menu =
-                "1. Вывод всей информации, что лежит в базе. \n"
-                + "2. Удалим по ID?. \n"
-                + "3. Найти драгоценности определенной компании  \n"
-                + "4. Добавить новую ювелирку. Сезон - весенний \n"
-                + "5. Изменить данные по ID \n"
-                + "6. Выйти из проограммы. Пока - пока";
-        System.out.println(menu);
-    }
 
 }
