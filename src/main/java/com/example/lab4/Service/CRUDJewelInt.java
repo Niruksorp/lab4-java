@@ -4,10 +4,13 @@ import com.example.lab4.Entity.Jewel;
 import com.sun.istack.NotNull;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public interface CRUDJewelInt {
-    void create(@NotNull Jewel jewel);
-    ArrayList<Jewel> read();
+    void add(@NotNull Jewel jewel);
+    ArrayList<Jewel> findAll();
     void update(@NotNull Jewel jewel);
-    void delete(@NotNull Long id);
+    void deleteById(@NotNull Long id);
+    Optional<Jewel> findById(Long id);
+    ArrayList<Jewel> findJewelsByBrandName(String name);
 }

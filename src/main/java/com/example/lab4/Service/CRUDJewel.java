@@ -5,6 +5,7 @@ import com.example.lab4.Repository.JewelsRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class CRUDJewel implements CRUDJewelInt {
@@ -15,16 +16,18 @@ public class CRUDJewel implements CRUDJewelInt {
         this.jewelsRepo = jewelsRepo;
     }
 
-    public void create(Jewel jewel) {
+    public void add(Jewel jewel) {
         jewelsRepo.save(jewel);
     }
-    public ArrayList<Jewel> read() {
+    public ArrayList<Jewel> findAll() {
         return new ArrayList<>(jewelsRepo.findAll());
     }
     public void update(Jewel jewel) {
         jewelsRepo.save(jewel);
     }
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         jewelsRepo.deleteById(id);
     }
+    public Optional<Jewel> findById(Long id) { return jewelsRepo.findById(id); }
+    public ArrayList<Jewel> findJewelsByBrandName(String name) {return jewelsRepo.findJewelsByBrandName(name);}
 }
