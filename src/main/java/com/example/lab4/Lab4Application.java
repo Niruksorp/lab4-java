@@ -14,7 +14,6 @@ public class Lab4Application {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Lab4Application.class, args);
         programLogic = ctx.getBean(ProgramLogic.class);
-
         Scanner input = new Scanner(System.in);
         boolean loop = true;
 
@@ -50,13 +49,15 @@ public class Lab4Application {
             }
         }
     }
+
     public static void printMenu () {
         String menu =
                 "1. Вывод всей информации, что лежит в базе. \n"
                 + "2. Удалим по ID?. \n"
-                + "3. Вывод драгоценностей, по конкретной стоимости  \n"
-                + "4. Редактирование по ID \n"
-                + "5. Выход из программы";
+                + "3. Найти драгоценности определенной компании  \n"
+                + "4. Добавить новую ювелирку. Сезон - весенний \n"
+                + "5. Изменить данные по ID \n"
+                + "6. Выйти из проограммы. Пока - пока";
         System.out.println(menu);
     }
 
