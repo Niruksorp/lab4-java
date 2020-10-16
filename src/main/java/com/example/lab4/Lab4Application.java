@@ -30,11 +30,11 @@ public class Lab4Application {
                     break;
                 }
                 case 2: {
-                    programLogic.delete();
+                    programLogic.delete((long) userInput.getInt(input));
                     break;
                 }
                 case 3: {
-                    programLogic.findByName();
+                    programLogic.findByName(input.next());
                     break;
                 }
                 case 4: {
@@ -42,7 +42,7 @@ public class Lab4Application {
                     break;
                 }
                 case 5: {
-                    programLogic.updateJewel();
+                    programLogic.updateJewel((long) userInput.getInt(input));
                     break;
                 }
                 case 6: {

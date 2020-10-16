@@ -34,18 +34,19 @@ public class ProgramLogic {
         crudRepository.add(jew);
     }
 
-    public void updateJewel() {
-        Optional<Jewel> optionalUser = crudRepository.findById((long) userInput.getInt(input));
-        Jewel jewel = optionalUser.get();
+    public void updateJewel(Long id) {
+
+        Optional<Jewel> optionalUser = crudRepository.findById(id);
+        Jewel jewel = optionalUser.orElse(null);
         jewel.setBrandName("some");
         crudRepository.add(jewel);
         System.out.println(jewel.toString());
     }
-    public void findByName() {
-        crudRepository.findJewelsByBrandName("aaa").forEach(str -> System.out.println(str.toString()));
+    public void findByName(String name) {
+        crudRepository.findJewelsByBrandName(name).forEach(str -> System.out.println(str.toString()));
     }
 
-    public void delete() {
-        crudRepository.deleteById((long) (userInput.getInt(input)));
+    public void delete(Long id) {
+        crudRepository.deleteById(id);
     }
 }
