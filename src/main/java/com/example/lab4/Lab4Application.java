@@ -1,5 +1,6 @@
 package com.example.lab4;
 
+import com.example.lab4.UserInput.UserInput;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,13 +15,14 @@ public class Lab4Application {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Lab4Application.class, args);
         programLogic = ctx.getBean(ProgramLogic.class);
+        UserInput userInput = new UserInput();
         Scanner input = new Scanner(System.in);
         boolean loop = true;
 
         while (loop){
             printMenu();
             System.out.println("Введите команду! \n");
-            switch (getInt(input)){
+            switch (userInput.getInt(input)){
                 case 1: {
                     programLogic.printAllJewels();
                     break;
@@ -59,17 +61,6 @@ public class Lab4Application {
                 + "5. Изменить данные по ID \n"
                 + "6. Выйти из проограммы. Пока - пока";
         System.out.println(menu);
-    }
-
-    public static int getInt(final Scanner scanner) {
-        System.out.println("Введити число");
-        boolean flag = false;
-        while (!flag) {
-            if (scanner.hasNextInt()) return scanner.nextInt();
-            scanner.next();
-            System.out.println("Введите значение");
-        }
-        return -1;
     }
 
 }
