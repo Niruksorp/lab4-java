@@ -3,11 +3,12 @@ package com.example.lab4;
 import com.example.lab4.Entity.Jewel;
 import com.example.lab4.Service.CRUDJewel;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-@CrossOrigin(origins = { "http://localhost:63342" })
-@RestController
+@Controller
 @RequestMapping("")
 public class ApplicationController {
 
@@ -18,9 +19,9 @@ public class ApplicationController {
     }
 
     @GetMapping("/getAllValue")
-    public ResponseEntity getAll() {
-         return ResponseEntity
-                 .ok(crudJewel.findAll());
+    public String getAll(Model model) {
+        model.addAttribute("allJewels", crudJewel.findAll());
+         return "jewel/index";
     }
 
     @DeleteMapping("/deleteValue/")
